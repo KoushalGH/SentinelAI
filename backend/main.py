@@ -43,7 +43,7 @@ MODEL_ID = "flax-community/clip-rsicd-v2"
 
 try:
     print(f"Loading Specialized Satellite CLIP model: {MODEL_ID} for Search API...")
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     model = CLIPModel.from_pretrained(MODEL_ID).to(device)
     processor = CLIPProcessor.from_pretrained(MODEL_ID)
     
@@ -80,7 +80,7 @@ def semantic_search(q: str, limit: int = 5):
     if not AI_READY:
         return {"query": q, "results": [{"error": "AI models not initialized."}]}
         
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     inputs = processor(text=[q], return_tensors="pt", padding=True).to(device)
     
     with torch.no_grad():
