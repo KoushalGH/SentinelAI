@@ -87,15 +87,6 @@ npm run dev
 
 ---
 
-## Deployment
-
-SentinelAI is designed to be hosted entirely on free-tier cloud infrastructure:
-- **Frontend:** Hosted on [Vercel](https://vercel.com).
-- **Backend:** Hosted on [HuggingFace Spaces](https://huggingface.co/) using the Gradio ASGI wrapper (`app.py`), allowing a heavy PyTorch model to run on a 16GB CPU tier for free.
-- **Databases:** Supabase (Auth) and Qdrant Cloud (Vectors).
-
----
-
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
