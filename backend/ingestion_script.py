@@ -35,7 +35,7 @@ def normalize_image(img_array):
     return (img_normalized * 255).astype(np.uint8)
 
 def process_and_ingest(image_path, model, processor, qdrant, max_patches=1000, target_bbox=None):
-    device = "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     
     collections = qdrant.get_collections().collections
     if not any(c.name == COLLECTION_NAME for c in collections):

@@ -125,7 +125,7 @@ def classify_changes(changes, image_path_before, image_path_after):
     """ Use CLIP to classify what the new object is and extract Base64 images for the frontend """
     # UPGRADED: Using a specialized Remote Sensing Vision-Language model for significantly higher accuracy on satellite data
     MODEL_ID = "flax-community/clip-rsicd-v2"
-    device = "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Loading CLIP on {device} for classification...")
     
     model = CLIPModel.from_pretrained(MODEL_ID).to(device)
