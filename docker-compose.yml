@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sat_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  titiler:
+    image: ghcr.io/developmentseed/titiler:latest
+    ports:
+      - "8080:8000"
+    environment:
+      - PORT=8000
+    volumes:
+      - ./data:/data
+
+volumes:
+  postgres_data:
+  qdrant_data:

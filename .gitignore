@@ -1,0 +1,39 @@
+# General
+.DS_Store
+.vscode/
+.idea/
+
+# Frontend (Next.js & Node)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env
+frontend/.env.*
+frontend/.env.local
+frontend/.vercel/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Backend (Python & FastAPI)
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/.pytest_cache/
+backend/venv/
+backend/.venv/
+backend/env/
+backend/.env
+backend/.env.*
+backend/celerybeat-schedule
+backend/*.log
+
+# Heavy Data Files & Local Satellite Imagery
+
+backend/playground_data/
+backend/playground/
+*.tif
+*.tiff
+*.nc
+*.geojson
